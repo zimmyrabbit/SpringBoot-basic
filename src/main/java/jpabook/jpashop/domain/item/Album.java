@@ -13,5 +13,5 @@ public class Album extends Item {
 
 	private String artist;
 	
-	private String ect;
+	private String etc;
 }
