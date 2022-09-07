@@ -11,9 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MemberRepositoryTest {
+public class MemberTestRepositoryTest {
 
-	@Autowired MemberRepository memberRepository;
+	@Autowired MemberTestRepository memberRepository;
 	
 	@Test
 	@Transactional
