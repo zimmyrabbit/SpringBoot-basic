@@ -116,4 +116,20 @@ public class OrderRepository {
 							+ " join fetch o.delivery d", Order.class)
 							.getResultList();
 	}
+
+	public List<Order> findAllWithItem() {
+		
+		// JPA distinct
+		// -> 조회해오는 루트 엔티티(order) 의 레퍼런스 객체 주소가 같으면 중복으로 판단, 제거함.
+		
+		//** 1대다 페치조인에서는 페이징이 불가능 하다.
+		//** 컬렉션 페치조인은 1개만 사용 가능 (order <-> orderItem)
+		
+		return em.createQuery("select distinct o from Order o"
+							+ " join fetch o.member m"
+							+ " join fetch o.delivery d"
+							+ " join fetch o.orderItems oi"
+							+ " join fetch oi.item i", Order.class)
+							.getResultList();
+	}
 }
